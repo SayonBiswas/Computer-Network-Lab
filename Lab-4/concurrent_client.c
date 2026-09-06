@@ -41,9 +41,11 @@ int main(int argc, char *argv[]){
 		printf("\nClient input: ");
 		scanf(" %[^\n]", buf);
 		write(soc, buf, 1024);
+		if(strcmp(buf, "bye") == 0)
+			break;
 		printf("\n");
 		read(soc, buf1, 1024);
 		printf("\nMessage from server: %s", buf1);
-	}while(strcmp(buf, "bye") != 0);
+	}while(TRUE);
 	return 0;
 }

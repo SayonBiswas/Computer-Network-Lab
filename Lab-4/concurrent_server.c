@@ -61,11 +61,8 @@ int main(){
 					printf("\nMessage from client: %s\n", buf);
 					printf("\nMessage to client: ");
 					scanf(" %[^\n]", buf1);
-					for(i = 0; i < sizeof(temp); i++){
-						temp[i] = buf1[i];
-					}
 					write(msgsock, buf1, 1024);
-				}while(strcmp(temp, "bye") != 0);
+				}while(strcmp(buf, "bye") != 0);
 				close(msgsock);
 				exit(0);
 			}
