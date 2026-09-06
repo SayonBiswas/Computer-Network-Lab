@@ -47,6 +47,9 @@ int main(int argc, char *argv[]){
 		printf("Please enter the message: ");
 		fgets(buffer, 255, stdin);
 		n = write(sockfd, buffer, strlen(buffer));
+		if (buffer[0] == 'b' && buffer[1] == 'y' && buffer[2] == 'e') {
+            break;
+        }
 		if(n < 0)
 			error("Error writing to socket");
 		bzero(buffer, 256);
